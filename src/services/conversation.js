@@ -6,7 +6,8 @@ export const conversationApi = createApi({
     refetchOnFocus: true,
     refetchOnReconnect: true,
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:5000/',
+        // baseUrl: 'http://localhost:5000/',
+        baseUrl: process.env.REACT_APP_API_URL,
         prepareHeaders: (headers) => {
             headers.set('Access-Control-Allow-Origin', '*');
             const token = Cookies.get('token');
