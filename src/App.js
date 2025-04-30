@@ -11,7 +11,8 @@ import PublicRoutes from './components/PublicRoutes';
 import './App.css';
 import AuthProvider from './contexts/AuthContext';
 
-const SERVER = 'http://localhost:5000/';
+// const SERVER = 'http://localhost:5000/';
+const SERVER = process.env.REACT_APP_API_URL;
 
 function App() {
     const socket = socketClient(SERVER);

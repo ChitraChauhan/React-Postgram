@@ -64,7 +64,7 @@ const Messenger = () => {
     }, [messagesData]);
 
     useEffect(() => {
-        socket.current = io('http://localhost:5000');
+        socket.current = io(process.env.REACT_APP_API_URL);
         socket.current.on('getMessage', (data) => {
             setArrivalMessage({
                 sender: data.senderId,

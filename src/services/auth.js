@@ -4,7 +4,8 @@ export const signUpUser = createAsyncThunk(
     'auth/sign-up',
     async (payload, thunkAPI) => {
         try {
-            const response = await fetch('http://localhost:5000/auth/sign-up', {
+            const baseURL = process.env.REACT_APP_API_URL;
+            const response = await fetch(`${baseURL}/auth/sign-up`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -28,7 +29,8 @@ export const loginUser = createAsyncThunk(
     'auth/login',
     async (payload, thunkAPI) => {
         try {
-            const response = await fetch('http://localhost:5000/auth/login', {
+            const baseURL = process.env.REACT_APP_API_URL;
+            const response = await fetch(`${baseURL}/auth/login`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
