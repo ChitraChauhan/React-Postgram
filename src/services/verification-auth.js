@@ -9,6 +9,7 @@ export const verificationAuthApi = createApi({
         baseUrl: process.env.REACT_APP_API_URL,
         prepareHeaders: (headers) => {
             headers.set('Access-Control-Allow-Origin', '*');
+            headers.set('Content-Type', 'application/json');
             return headers;
         },
     }),

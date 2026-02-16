@@ -10,6 +10,7 @@ export const messageApi = createApi({
         baseUrl: process.env.REACT_APP_API_URL,
         prepareHeaders: (headers) => {
             headers.set('Access-Control-Allow-Origin', '*');
+            headers.set('Content-Type', 'application/json');
             const token = Cookies.get('token');
             if (token) {
                 headers.set('authorization', `Bearer ${token}`);
