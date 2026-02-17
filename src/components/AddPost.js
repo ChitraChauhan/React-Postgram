@@ -30,7 +30,7 @@ export default function AddPost({ toggleModal, post }) {
         if (!Object.keys(errors)?.length) {
             const payload = Object.assign({}, formValues);
             if (file) {
-                payload.filePath = base64;
+                payload.filePath = file;
             }
             if (post) {
                 const response = await updateUserPost(payload);
@@ -40,7 +40,10 @@ export default function AddPost({ toggleModal, post }) {
                     toggleModal();
                 }
             } else {
-                const response = await createUserPost(payload);
+                const formData = new FormData();
+                formData.append("title", payload.title);
+                formData.append("filePath",  payload.filePath);
+                const response = await createUserPost(formData);
                 if (response?.data?.status === 'success') {
                     toast.success('successfully posted!');
                     setFormValues(null);
